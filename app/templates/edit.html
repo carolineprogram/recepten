@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if form.errors %}
+    {{ form.errors }}
+{% endif %}
+    <h1>Vul nieuw recept in</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+        {{ form.id.label }}{{ form.id }}{{ form.naam.label }}<br>
+        {{ form.naam }}
+        {% for error in form.naam.error %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ form.beschrijving.label }}<br>
+        {{ form.beschrijving(size=150) }}
+        {% for error in form.beschrijving.error %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        </p>
+        <p>
+        {{ form.bron.label }}<br>
+        {{ form.bron }}
+
+        </p>
+        <p>
+        {{ form.gemaakt.label }}<br>
+        {{ form.gemaakt }}
+        </p>
+        <p>
+        {{ form.locatie.label }}<br>
+        {{ form.locatie }}
+        {% for error in form.locatie.error %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ form.types.label }}<br>
+        {{ form.types }}
+        {% for error in form.types.error %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ form.ingredienten.label }}<br>
+        {{ form.ingredienten }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</div>
+{% endblock %}

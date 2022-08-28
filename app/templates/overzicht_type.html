@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block styles %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block title %}Types - overzicht{% endblock %}
+
+{% block content %}
+<ul class="column5">
+  {% for type in types %}
+  <li><a href="{{ url_for('overzicht_type', type_id=type[0]) }}">{{ type[1] }}</a></li>
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for recept in recepten %}
+  <li><a href="{{ url_for('fiche_recept', id=recept['recept_id']) }}">{{ recept['naam'] }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

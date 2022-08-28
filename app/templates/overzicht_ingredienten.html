@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block styles %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block title %}Ingrediënten - overzicht{% endblock %}
+
+{% block content %}
+<ul class="column5">
+  {% for ingredient in ingredienten %}
+  <ul><a href="{{ url_for('overzicht_ingredienten', ingredient_id=ingredient[0]) }}">{{ ingredient[1] }}</a></ul>
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for recept in recepten %}
+  <li><a href="{{ url_for('fiche_recept', id=recept['recept_id']) }}">{{ recept['naam'] }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

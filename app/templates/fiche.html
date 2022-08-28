@@ -1,0 +1,31 @@
+<!-- https://github.com/StartBootstrap/startbootstrap-stylish-portfolio/blob/master/dist/index.html -->
+
+{% extends "bootstrap/base.html" %}
+{% block title %}Recept voor {{ recept.naam }}
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+<!-- Navigation-->
+        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#page-top">Start Bootstrap</a></li>
+                <li class="sidebar-nav-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="sidebar-nav-item"><a href="#about">About</a></li>
+                <li class="sidebar-nav-item"><a href="#services">Services</a></li>
+                <li class="sidebar-nav-item"><a href="#portfolio">Portfolio</a></li>
+                <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Header-->
+        <header class="masthead d-flex align-items-center">
+            <div class="container px-4 px-lg-5 text-center">
+                <h1 class="mb-1">{{ recept.naam }}</h1>
+                <h3 class="mb-5"><em>{{ recept.beschrijving }}</em></h3>
+                <a class="btn btn-primary btn-xl" href="#about">{{ recept.bron }}</a>
+                <p><a href="{{ url_for('edit_fiche', id=recept.recept_id) }}">Edit recept</a></p>
+            </div>
+        </header>
+</div>
+{% endblock %}

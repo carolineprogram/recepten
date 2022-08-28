@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+
+<h1>Invulformulier</h1>
+
+<form action="" method="post" class="" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="">
+        {{ form.naam.label(class_="col-md-4 control-label") }}
+        <div class="col-md-8">
+            {{ form.naam(class_="form-control", size=150) }}
+            {% for error in form.naam.error %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        {{ form.beschrijving.label(class_="col-md-4 control-label") }}
+        <div class="col-md-8">
+            {{ form.beschrijving(class_="form-control", size=150) }}
+            {% for error in form.beschrijving.error %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        {{ form.bron.label(class_="col-md-4 control-label") }}
+        <div class="col-md-8">
+            {{ form.bron(class_="form-control", size=150) }}
+        </div>
+        {{ form.gemaakt.label(class_="col-md-4 control-label") }}
+        <div class="col-md-8">
+            {{ form.gemaakt }}
+        </div>
+        {{ form.locatie.label(class_="col-md-4 control-label") }}
+        <div class="col-md-8">
+            {{ form.locatie(class_="form-control", size=150) }}
+            {% for error in form.locatie.error %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- div form-group gesloten -->
+    <p>
+        {{ form.types.label }}<br>
+        {{ form.types }}
+        {% for error in form.types.error %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.ingredienten.label }}<br>
+        {{ form.ingredienten }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+</body>
+{% endblock %}
