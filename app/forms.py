@@ -31,7 +31,6 @@ class Invul_Form(FlaskForm):
     locatie = StringField("Waar kan je het recept vinden?", validators=[DataRequired()])
     types = MultiCheckboxField("Types", coerce=int, choices=find_types())
     ingredienten = MultiCheckboxField("Ingredienten", coerce=int, choices=find_ingredienten())
-    submit = SubmitField("Invoeren")
 
 class Edit_Form(FlaskForm):
     id = IntegerField("Id recept")
