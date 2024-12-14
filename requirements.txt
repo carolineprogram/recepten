@@ -1,1 +1,2 @@
-st-supabase-connection==2.0.1
+st-supabase-connection==2.0.1types-mysqlclient==2.2
+types-PyMySQL==1.1
