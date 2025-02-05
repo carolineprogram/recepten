@@ -12,9 +12,9 @@ conn = st.connection("supabase",type=SupabaseConnection)
 
 # Perform query.
 rows = conn.table("recepten_recepten").select("*").execute()
-
+st.write(rows)
 # Print results.
-for row in rows.data:
-    st.write(f"{row['Naam']} has a :{row['Bron']}:")
+#for row in rows.data:
+#    st.write(f"{row['Naam']} has a :{row['Bron']}:")
 
 
