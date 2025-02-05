@@ -21,4 +21,5 @@ rows = run_query()
 
 # Print results.
 for row in rows.data:
-    st.write(f"{row['Naam']} has a :{row['Bron']}:")
+    st.write("koekoek")
+    #st.write(f"{row['Naam']} has a :{row['Bron']}:")
