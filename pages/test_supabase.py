@@ -18,7 +18,7 @@ def run_query():
     return supabase.table("recepten_recepten").select("*").execute()
 
 rows = run_query()
-
+st.write(rows)
 # Print results.
 for row in rows.data:
     st.write("koekoek")
