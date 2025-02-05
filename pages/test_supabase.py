@@ -11,9 +11,10 @@ from st_supabase_connection import SupabaseConnection
 conn = st.connection("supabase",type=SupabaseConnection)
 
 # Perform query.
-rows = conn.query("*", table="recepten_recepten", ttl="10m").execute()
+rows = conn.table("recepten_recepten").select("*").execute()
 
 # Print results.
 for row in rows.data:
     st.write(f"{row['Naam']} has a :{row['Bron']}:")
+
 
