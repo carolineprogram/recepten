@@ -3,7 +3,7 @@ from supabase import create_client, Client
 
 # Initialize connection.
 # Uses st.cache_resource to only run once.
-@st.cache_resource
+#@st.cache_resource
 def init_connection():
     url = "https://qnmvdxpiuvtotkkxmgbw.supabase.co"
     key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubXZkeHBpdXZ0b3Rra3htZ2J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMwNzk0MDUsImV4cCI6MjA0ODY1NTQwNX0.V27BENxyRWwuNC0YRVcmzL5yhbTO37x_FLDJjdHnWAc"
@@ -18,7 +18,7 @@ def run_query():
     return supabase.table("recepten_recepten").select("*").execute()
 
 rows = run_query()
-st.write(rows)
+
 # Print results.
 for row in rows.data:
     st.write("koekoek")
