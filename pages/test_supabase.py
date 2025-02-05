@@ -11,8 +11,9 @@ from st_supabase_connection import SupabaseConnection
 conn = st.connection("supabase",type=SupabaseConnection)
 
 # Perform query.
-rows = conn.table("recepten_ingredient").select("*").execute()
+rows = conn.table("recepten_recepten").select("*").execute()
 st.write(rows)
+st.write("recepten")
 # Print results.
 #for row in rows.data:
 #    st.write(f"{row['Naam']} has a :{row['Bron']}:")
