@@ -12,10 +12,9 @@ conn = st.connection("supabase",type=SupabaseConnection)
 
 # Perform query.
 rows = conn.table("recepten_recepten").select("*").execute()
-st.write(rows)
-st.write("recepten")
+#Om te kunnen werken op Supabase RLS Row Level Security op de tabel afzetten
 # Print results.
-#for row in rows.data:
-#    st.write(f"{row['Naam']} has a :{row['Bron']}:")
+for row in rows.data:
+    st.write(f"{row['Naam']} has a :{row['Bron']}:")
 
 
