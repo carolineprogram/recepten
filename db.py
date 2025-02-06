@@ -15,11 +15,14 @@ def get_connection():
 
 # Perform query.
 def run_query(query, params=None):
-    with get_connection() as conn:
-        with conn.cursor(buffered=True) as cur:
-            cur.execute(query, params or ())
-            if query.strip().lower().startswith(('insert', 'update', 'delete')):
-                conn.commit()
-                return cur.lastrowid
-            else:
-                return cur.fetchall()
+    try:
+        with get_connection() as conn:
+            with conn.cursor(buffered=True) as cur:
+                cur.execute(query, params or ())
+                if query.strip().lower().startswith(('insert', 'update', 'delete')):
+                    conn.commit()
+                    return cur.lastrowid
+                else:
+                    return cur.fetchall()
+    except Exception as e:
+        print(f"An error occurred: {e}")
