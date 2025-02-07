@@ -11,6 +11,6 @@ rows = conn.table("recepten_ingredient").select("*").execute()
 #Om te kunnen werken op Supabase RLS Row Level Security op de tabel afzetten
 # Print results.
 for row in rows.data:
-    st.write(f"{row['Naam']} has a :{row['Bron']}:")
+    st.write(f"{row['ingredient']} has a :{row['type']}:")
 
 
