@@ -26,4 +26,5 @@ def run_query(query, params=None):
     except Exception as e:
         print(f"An error occurred: {e}")
 query ="SELECT recept_id FROM MtM_recept_ingredient"
-run_query(query)
+result = run_query(query)
+st.write(result)
