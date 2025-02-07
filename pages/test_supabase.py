@@ -6,7 +6,8 @@ from st_supabase_connection import SupabaseConnection
 conn = st.connection("supabase",type=SupabaseConnection)
 
 # Perform query.
-rows = conn.table("recepten_recepten").select("*").execute()
+rows = conn.table("recepten_ingredient").select("*").execute()
+
 #Om te kunnen werken op Supabase RLS Row Level Security op de tabel afzetten
 # Print results.
 for row in rows.data:
